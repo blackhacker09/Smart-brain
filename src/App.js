@@ -15,6 +15,12 @@ import './App.css';
 //   apiKey: 'dae9ec1208bf4c0eb98f89a31d720ddc'
 // });
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
 const returnClarifaiRequestOptions = (imageUrl) => {
     
   const PAT = '22d52d628f7b4a6da824d4434fad2107';
@@ -51,10 +57,14 @@ const returnClarifaiRequestOptions = (imageUrl) => {
 } 
 
 
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
 const initialState = {
     input: '',
     imageUrl: '',
-    box: {},
+    box: [],
     route: 'signin',
     isSignedIn: false,
     user: {
@@ -94,7 +104,7 @@ class App extends Component {
       bottomRow: height - (clarifaiFace.bottom_row * height)
     }
   }
-  
+
   displayFaceBox = (box) => {
     this.setState({box: box});
   }
@@ -110,7 +120,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://mybackend-h4js.onrender.com/image', {
+          fetch('http://localhost:3000/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
