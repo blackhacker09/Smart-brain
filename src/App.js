@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ParticlesBg from 'particles-bg';
-// import Clarifai from 'clarifai';
 import Navigation from './Component/Navigation/Navigation';
 import Signin from './Component/Signin/Signin';
 import Register from './Component/Register/Register';
@@ -9,57 +8,6 @@ import ImageLinkForm from './Component/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './Component/FaceRecognition/FaceRecognition';
 import Rank from './Component/Rank/Rank';
 import './App.css';
-
-// You must add your own API key here from Clarifai.
-// const app = new Clarifai.App({
-//   apiKey: 'dae9ec1208bf4c0eb98f89a31d720ddc'
-// });
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-
-
-
-const returnClarifaiRequestOptions = (imageUrl) => {
-    
-  const PAT = '22d52d628f7b4a6da824d4434fad2107';
-  const USER_ID = 'suraj_verma';       
-  const APP_ID = 'test';
-  const IMAGE_URL = imageUrl;
-
-  const raw = JSON.stringify({
-    "user_app_id": {
-        "user_id": USER_ID,
-        "app_id": APP_ID
-    },
-    "inputs": [
-        {
-            "data": {
-                "image": {
-                    "url": IMAGE_URL
-                }
-            }
-        }
-    ]
-  });
-
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key ' + PAT
-    },
-    body: raw
-  };
-
-  return requestOptions;
-} 
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-
-
 
 const initialState = {
     input: '',
@@ -92,6 +40,7 @@ class App extends Component {
     }})
   }
  
+
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
@@ -113,30 +62,37 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
-  
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", returnClarifaiRequestOptions(this.state.input))
+      fetch('http://localhost:3000/imageurl', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          input: this.state.input
+        })
+      })
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://mybackend-h4js.onrender.com/image', {
+          fetch('http://localhost:3000/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               id: this.state.user.id
             })
           })
-          .then(response => response.json())
-          .then(count => {
-            this.setState(Object.assign(this.state.user, { entries: count}))
-          })
-          .catch(console.log)
-      }
-      this.displayFaceBox(this.calculateFaceLocation(response))
-    })
-    .catch(err => console.log(err));
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count}))
+            })
+            .catch(console.log)
+
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
+      .catch(err => console.log(err));
   }
+
   
   onRouteChange = (route) => {
     if (route === 'signout') {
