@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Smart-brain 🧠🖼️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Smartbrain is an image recognition web app designed to detect faces in inserted images. After signing in, users can enter any image URL containing a face, and the web app will highlight the detected face using the Clarifai image recognition API. Additionally, the app keeps track of the number of faces checked by the user and displays this count on their dashboard.
 
-## Available Scripts
+## Tech Stack :
 
-In the project directory, you can run:
+* **Client:** React JS
 
-### `npm start`
+* **Server:** Node JS, Express JS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Database:** PostgreSQL
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **API:** Clarifai API
 
-### `npm test`
+## How does it work?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Design a user interface for the web application, including a sign-in/register form and a form to enter the image URL (ensuring the URL ends with ".jpg").
+* Implement a user authentication system that allows users to sign in or register for an account, using either a user management framework or building the authentication system from scratch.
+* Once the user is authenticated, direct them to the home page.
+* On the home page, provide an input field where users can enter the URL of an image.
+* When the user clicks the "Detect" button, the web application fetches the image using the provided URL.
+* Utilize a face detection algorithm or a pre-trained machine learning model to analyze the image and detect faces.
+* Count the number of detected faces and store this information in a database or session variable, associating it with the user's account.
+* Display the detected face count to the user on the home page or a separate results page.
+* The web application remembers the count of detected faces, ensuring it is always available even after the user has clicked "detect" again.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### for Back End click [Here](https://github.com/blackhacker09/Smart-brain-api)
