@@ -35,7 +35,7 @@ Smartbrain is an image recognition web app designed to detect faces in inserted 
 ## Screenshots :
 
 ### Login
-![Screenshot (62)](https://github.com/blackhacker09/Smart-brain/assets/56511978/def82eec-571b-470c-be20-85669adc6a9a)
+![Screenshot (61)](https://github.com/blackhacker09/Smart-brain/assets/56511978/d2618417-33bb-47d7-a167-f87167b84e8a)
 
 ### Register
 ![Screenshot (59)](https://github.com/blackhacker09/Smart-brain/assets/56511978/ae8f145c-1cc2-4750-8ec6-2273ad7f1b60)
@@ -44,6 +44,6 @@ Smartbrain is an image recognition web app designed to detect faces in inserted 
 ![Screenshot (60)](https://github.com/blackhacker09/Smart-brain/assets/56511978/27ce2dc4-9868-4ef7-b134-dfc222eb0c06)
 
 ### Detecting faces using URLs
-![Screenshot (61)](https://github.com/blackhacker09/Smart-brain/assets/56511978/d2618417-33bb-47d7-a167-f87167b84e8a)
+![Screenshot (62)](https://github.com/blackhacker09/Smart-brain/assets/56511978/def82eec-571b-470c-be20-85669adc6a9a)
 
 ### for Back End click [Here](https://github.com/blackhacker09/Smart-brain-api)
